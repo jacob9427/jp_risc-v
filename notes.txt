@@ -1,0 +1,25 @@
+all reads for instruction mem, regfile, and data mem is combinational (not clocked)
+clock controls writing only
+
+
+**careful for timing violations
+
+The address, data, and write enable must
+set up before the clock edge and must remain stable until a hold time
+after the clock edge.
+
+7.13
+single-cycle
+- executes an entire instruction in 1 cycle
+- easy to explain, simple control unit
+- cycle time is limited by slowest instruction
+
+multi-cycle
+- executes instructions in a series of shroter cycles
+- simpler instructions execute in fewer cycles thant complicated ones
+- one instruction at a time, but each instructions takes multiple clocks
+
+pipelined
+- executes several instructions simultaneously
+- need logic to handle dependencies (forwarding,stalls,etc)
+- requres nonarchitectural pipeline registers
