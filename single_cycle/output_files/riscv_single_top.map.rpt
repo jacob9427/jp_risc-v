@@ -1,5 +1,5 @@
 Analysis & Synthesis report for riscv_single_top
-Thu Jul 10 15:27:47 2025
+Thu Jul 10 15:36:12 2025
 Quartus Prime Version 16.1.2 Build 203 01/18/2017 SJ Lite Edition
 
 
@@ -45,7 +45,7 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu Jul 10 15:27:47 2025       ;
+; Analysis & Synthesis Status     ; Successful - Thu Jul 10 15:36:12 2025       ;
 ; Quartus Prime Version           ; 16.1.2 Build 203 01/18/2017 SJ Lite Edition ;
 ; Revision Name                   ; riscv_single_top                            ;
 ; Top-level Entity Name           ; riscv_single_top                            ;
@@ -281,7 +281,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.2 Build 203 01/18/2017 SJ Lite Edition
-    Info: Processing started: Thu Jul 10 15:27:41 2025
+    Info: Processing started: Thu Jul 10 15:36:06 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off riscv_single_top -c riscv_single_top
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 10 of the 10 processors detected
@@ -334,9 +334,9 @@ Info (21057): Implemented 2 device resources after synthesis - the final resourc
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 0 output pins
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 22 warnings
-    Info: Peak virtual memory: 4801 megabytes
-    Info: Processing ended: Thu Jul 10 15:27:47 2025
+    Info: Peak virtual memory: 4802 megabytes
+    Info: Processing ended: Thu Jul 10 15:36:12 2025
     Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:15
+    Info: Total CPU time (on all processors): 00:00:16
 
 
