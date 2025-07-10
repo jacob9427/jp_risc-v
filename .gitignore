@@ -1,6 +1,6 @@
 .vscode/
-incremental_db/
-db/
-work/
-output_files/
 c5_pin_model_dump.txt/
+db/
+incremental_db/
+output_files/
+work/

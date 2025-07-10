@@ -1,5 +1,5 @@
 Flow report for riscv_single_top
-Thu Jul 10 15:37:22 2025
+Thu Jul 10 15:39:27 2025
 Quartus Prime Version 16.1.2 Build 203 01/18/2017 SJ Lite Edition
 
 
@@ -41,7 +41,7 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Thu Jul 10 15:37:18 2025       ;
+; Flow Status                     ; Successful - Thu Jul 10 15:39:23 2025       ;
 ; Quartus Prime Version           ; 16.1.2 Build 203 01/18/2017 SJ Lite Edition ;
 ; Revision Name                   ; riscv_single_top                            ;
 ; Top-level Entity Name           ; riscv_single_top                            ;
@@ -100,7 +100,11 @@ agreement for further details.
 ; Fitter                    ; 00:00:52     ; 1.0                     ; 7128 MB             ; 00:01:35                           ;
 ; Assembler                 ; 00:00:12     ; 1.0                     ; 4831 MB             ; 00:00:04                           ;
 ; TimeQuest Timing Analyzer ; 00:00:03     ; 1.0                     ; 5185 MB             ; 00:00:02                           ;
-; Total                     ; 00:01:13     ; --                      ; --                  ; 00:01:56                           ;
+; Analysis & Synthesis      ; 00:00:07     ; 1.0                     ; 4789 MB             ; 00:00:15                           ;
+; Fitter                    ; 00:00:49     ; 1.0                     ; 7131 MB             ; 00:01:35                           ;
+; Assembler                 ; 00:00:04     ; 1.0                     ; 4833 MB             ; 00:00:04                           ;
+; TimeQuest Timing Analyzer ; 00:00:03     ; 1.0                     ; 5182 MB             ; 00:00:02                           ;
+; Total                     ; 00:02:16     ; --                      ; --                  ; 00:03:52                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -113,12 +117,20 @@ agreement for further details.
 ; Fitter                    ; John-Pork        ; Windows 10 ; 10.0       ; x86_64         ;
 ; Assembler                 ; John-Pork        ; Windows 10 ; 10.0       ; x86_64         ;
 ; TimeQuest Timing Analyzer ; John-Pork        ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis      ; John-Pork        ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter                    ; John-Pork        ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler                 ; John-Pork        ; Windows 10 ; 10.0       ; x86_64         ;
+; TimeQuest Timing Analyzer ; John-Pork        ; Windows 10 ; 10.0       ; x86_64         ;
 +---------------------------+------------------+------------+------------+----------------+
 
 
 ------------
 ; Flow Log ;
 ------------
+quartus_map --read_settings_files=on --write_settings_files=off riscv_single_top -c riscv_single_top
+quartus_fit --read_settings_files=off --write_settings_files=off riscv_single_top -c riscv_single_top
+quartus_asm --read_settings_files=off --write_settings_files=off riscv_single_top -c riscv_single_top
+quartus_sta riscv_single_top -c riscv_single_top
 quartus_map --read_settings_files=on --write_settings_files=off riscv_single_top -c riscv_single_top
 quartus_fit --read_settings_files=off --write_settings_files=off riscv_single_top -c riscv_single_top
 quartus_asm --read_settings_files=off --write_settings_files=off riscv_single_top -c riscv_single_top
