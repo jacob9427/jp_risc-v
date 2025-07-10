@@ -1,6 +1,12 @@
-.vscode/
-c5_pin_model_dump.txt
+# Quartus build artifacts
 db/
 incremental_db/
 output_files/
-work/
+c5_pin_model_dump.txt
+*.rpt
+*.qws
+#*.qpf
+*.qsf
+
+# VS Code settings
+.vscode/
