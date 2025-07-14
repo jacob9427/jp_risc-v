@@ -6,7 +6,8 @@ module data_mem ( //provided by ddca textbook
   output logic [31:0] dmem_data_out
 );
 
-logic [31:0] D_RAM [0:63];
+//32bit x 1024 word
+logic [31:0] D_RAM [0:1023];
 
 assign dmem_data_out = D_RAM[dmem_addr[31:2]];
 

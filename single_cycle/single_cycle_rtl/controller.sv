@@ -16,6 +16,14 @@ module controller (
 logic [1:0] ALUop;
 logic       branch;
 
+main_decoder MAIN_DECODER (
+
+);
+
+alu_decoder ALU_DECODER (
+
+);
+
 assign PC_sel = (branch & Z) | jump;    //when to alter PC from something other than standard + 4 increment
 
 endmodule

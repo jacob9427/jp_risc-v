@@ -3,7 +3,7 @@ module instruction_mem ( //provided by ddca textbook
   output logic [31:0] instruction_read
 );
 
-logic [31:0] I_RAM [0:63];
+logic [31:0] I_RAM [0:1023];
 
 // initial
 //   $readmemh("file.txt",I_RAM);

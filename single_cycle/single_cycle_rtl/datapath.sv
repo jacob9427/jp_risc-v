@@ -20,14 +20,14 @@ logic [31:0] src1,src2; //data read from addr1 and addr2 of regfile
 
 logic [31:0] PC_next;
 
-// dFF #(
-//   .n(32)
-// ) PC_register (
-//   .clk    (clk),
-//   .reset  (reset),
-//   .d      (PC_next),
-//   .q      (PC)
-// );
+myDFF #(
+  .n(32)
+) PC_register (
+  .clk    (clk),
+  .reset  (reset),
+  .d      (PC_next),
+  .q      (PC)
+);
 
 regfile REGFILE (
   .clk                (clk),

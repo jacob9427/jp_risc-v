@@ -1,4 +1,4 @@
-module dFF #(parameter n = 32) (
+module myDFF #(parameter n = 32) (
   input  logic          clk,
   input  logic          reset,
   input  logic [n-1:0]  d,
