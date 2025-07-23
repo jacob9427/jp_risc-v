@@ -3,7 +3,7 @@ module riscv_single (
   input  logic reset,
   input  logic [31:0] instruction,
   input  logic [31:0] dmem_data_out,
-  output logic        dmem_write,
+  output logic        dmem_wren,
   output logic [31:0] PC,
   output logic [31:0] ALU_result,
   output logic [31:0] dmem_data_in
@@ -13,13 +13,13 @@ module riscv_single (
 logic N,Z,C,V; //neg,zero,carry,overflow flags
 
 //controller to datapath signals:
-logic       jump;
-logic       PC_sel;           //mux for nextPC
-logic       ALU_bsel;         //mux which value to use for alu b input
-logic       regfile_wren;     //write enable for registerfile
-logic [1:0] result_sel;       //mux for which result to writeback to regfile
-logic [1:0] ximm_sel;        //select what type of sign extension to do
-logic [2:0] ALU_control;      //choose which operation ALU should perform
+logic         jump;
+logic         PC_sel;           //mux for nextPC
+logic         ALU_bsel;         //mux which value to use for alu b input
+logic         regfile_wren;     //write enable for registerfile
+logic [1:0]   result_sel;       //mux for which result to writeback to regfile
+logic [1:0]   ximm_sel;        //select what type of sign extension to do
+logic [2:0]   ALU_control;      //choose which operation ALU should perform
 
 
 controller CONTROLLER (
@@ -30,7 +30,7 @@ controller CONTROLLER (
   .Z            (Z),
   .C            (C),
   .V            (V),
-  .dmem_write   (dmem_write),
+  .dmem_wren    (dmem_wren),
   .jump         (),
   .PC_sel       (PC_sel),
   .ALU_bsel     (ALU_bsel),
