@@ -10,3 +10,8 @@ c5_pin_model_dump.txt
 
 # VS Code settings
 .vscode/
+
+# modelsim
+work/
+*.cr.mti
+*.mpf

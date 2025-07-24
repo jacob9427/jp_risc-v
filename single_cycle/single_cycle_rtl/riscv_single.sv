@@ -18,7 +18,7 @@ logic         PC_sel;           //mux for nextPC
 logic         ALU_bsel;         //mux which value to use for alu b input
 logic         regfile_wren;     //write enable for registerfile
 logic [1:0]   result_sel;       //mux for which result to writeback to regfile
-logic [1:0]   ximm_sel;        //select what type of sign extension to do
+logic [1:0]   ximm_sel;         //select what type of sign extension to do
 logic [2:0]   ALU_control;      //choose which operation ALU should perform
 
 
