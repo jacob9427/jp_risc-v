@@ -1,0 +1,1 @@
+program 1, writes 25 to addr 100
