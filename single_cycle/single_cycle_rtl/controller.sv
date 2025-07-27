@@ -2,9 +2,8 @@ module controller (
   input  logic [6:0]  opcode,
   input  logic [2:0]  funct3,
   input  logic        funct7b5,         //only fifth bit of funct7 matters for RV32I ISA
-  input  logic        N,Z,C,V,          //status flags
-  output logic        dmem_wren,        
-  output logic        jump,
+  input  logic        N,Z,C,V,          
+  output logic        dmem_wren,
   output logic        PC_sel,           //mux for nextPC 
   output logic        ALU_bsel,         //mux which value to use for alu b input
   output logic        regfile_wren,     //write enable for registerfile 
@@ -15,6 +14,7 @@ module controller (
 
 logic [1:0] ALU_op;
 logic       branch;
+logic       jump;
 
 main_decoder MAIN_DECODER (
   .opcode       (opcode),

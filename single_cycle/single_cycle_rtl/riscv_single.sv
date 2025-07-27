@@ -10,10 +10,10 @@ module riscv_single (
 );
 
 //datapath to controller signals
-logic N,Z,C,V; //neg,zero,carry,overflow flags
+logic N,Z,C,V; //neg,zero,carry,overflow control signals
+//usage tbd
 
 //controller to datapath signals:
-logic         jump;
 logic         PC_sel;           //mux for nextPC
 logic         ALU_bsel;         //mux which value to use for alu b input
 logic         regfile_wren;     //write enable for registerfile
@@ -31,7 +31,6 @@ controller CONTROLLER (
   .C            (C),
   .V            (V),
   .dmem_wren    (dmem_wren),
-  .jump         (),
   .PC_sel       (PC_sel),
   .ALU_bsel     (ALU_bsel),
   .regfile_wren (regfile_wren),

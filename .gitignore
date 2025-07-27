@@ -17,4 +17,12 @@ c5_pin_model_dump.txt
 work/
 *.cr.mti
 *.mpf
-*.wlf
+
+#idk
+*.fit.smsg
+*.fit.summary
+*.jdi
+*.pin
+*.sld
+*.sof
+*.sta.summary

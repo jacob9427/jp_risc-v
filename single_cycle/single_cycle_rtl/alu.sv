@@ -28,7 +28,7 @@ always_comb begin
       ALU_result = src1 | src2;
     end
     slt_ctrl_alu: begin
-      ALU_result = ($signed(src1) < $signed(src2)) ? 32'b1 : 32'b0;
+      ALU_result = ($signed(src1) < $signed(src2)) ? 32'd1 : 32'b0;
     end
 
     default: begin

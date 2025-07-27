@@ -38,9 +38,9 @@ always_comb begin
               and_funct:  ALU_control = and_ctrl;
               or_funct:   ALU_control = or_ctrl;
               slt_funct:  ALU_control = slt_ctrl;
-              default:    ALU_control = add_ctrl;
+              default:    ALU_control = 3'bx;
     endcase
-    default:  ALU_control = add_ctrl;
+    default:  ALU_control = 3'bx;
   endcase
 end
 
