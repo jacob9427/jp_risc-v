@@ -9,7 +9,7 @@ module controller (
   output logic        regfile_wren,     //write enable for registerfile 
   output logic [1:0]  result_sel,       //mux for which result to writeback to regfile
   output logic [1:0]  ximm_sel,         //select what type of extension to do
-  output logic [2:0]  ALU_control       //choose which operation ALU should perform
+  output logic [3:0]  ALU_control       //choose which operation ALU should perform
 );
 
 logic [1:0] ALU_op;

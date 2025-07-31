@@ -9,6 +9,7 @@ c5_pin_model_dump.txt
 *.qsf
 *.done
 *.map.summary
+*.qsf.bak
 
 # VS Code settings
 .vscode/
@@ -17,8 +18,10 @@ c5_pin_model_dump.txt
 work/
 *.cr.mti
 *.mpf
+*.wlf
 
 #idk
+*.map.smsg
 *.fit.smsg
 *.fit.summary
 *.jdi

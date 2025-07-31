@@ -6,7 +6,7 @@ module datapath (
   input  logic        ALU_bsel,
   input  logic [1:0]  result_sel,
   input  logic [1:0]  ximm_sel,
-  input  logic [2:0]  ALU_control,
+  input  logic [3:0]  ALU_control,
   input  logic [31:0] instruction,
   input  logic [31:0] dmem_data_out,
   output logic        N,Z,C,V,
