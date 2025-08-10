@@ -1,1 +1,3 @@
 program 1, writes 25 to addr 100
+
+program 2, just testing new alu operations

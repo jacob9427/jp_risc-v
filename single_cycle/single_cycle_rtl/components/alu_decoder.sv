@@ -53,7 +53,7 @@ always_comb begin
                     ALU_control = add_ctrl;
               end
               srl_sra_funct: begin
-                if (funct7b5 & opcodeb5)
+                if (funct7b5)
                   ALU_control = sra_ctrl;
                 else
                   ALU_control = srl_ctrl;

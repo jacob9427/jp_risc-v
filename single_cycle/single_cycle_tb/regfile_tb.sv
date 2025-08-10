@@ -131,7 +131,7 @@ initial begin
       $error("register %d failed",j + 1);
   end
 
-  $finish;
+  $stop;
 
   
 end

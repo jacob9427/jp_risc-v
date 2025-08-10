@@ -19,6 +19,6 @@ initial begin
     $display("Address: 0x%08h\nData:    0x%08h\n", instruction_addr,instruction_read);
   end
 
-  $finish;
+  $stop;
 end
 endmodule

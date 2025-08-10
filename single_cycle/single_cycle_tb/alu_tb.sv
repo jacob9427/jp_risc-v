@@ -135,7 +135,7 @@ initial begin
   end
 
   $display("All tests completed.");
-  $finish;
+  $stop;
 end
 
 endmodule

@@ -1,10 +1,10 @@
 module riscv_single_top (
-  input  logic  CLOCK_50,
+  input  logic  clk,
   input  logic  reset
 );
 
-logic clk;
-assign clk = CLOCK_50;
+//logic clk;
+//assign clk = CLOCK_50;
 
 //instruction mem signals
 logic [31:0] instruction; //from imem -> controller & datapath
