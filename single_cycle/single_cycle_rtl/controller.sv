@@ -4,7 +4,8 @@ module controller (
   input  logic        funct7b5,         //only fifth bit of funct7 matters for RV32I ISA
   input  logic        N,Z,C,V,          
   output logic        dmem_wren,
-  output logic        PC_sel,           //mux for nextPC 
+  output logic        PC_sel,           //mux for nextPC
+  output logic        PC_target_sel,
   output logic        ALU_bsel,         //mux which value to use for alu b input
   output logic        regfile_wren,     //write enable for registerfile 
   output logic [1:0]  result_sel,       //mux for which result to writeback to regfile
@@ -17,15 +18,16 @@ logic       branch;
 logic       jump;
 
 main_decoder MAIN_DECODER (
-  .opcode       (opcode),
-  .dmem_wren    (dmem_wren),
-  .jump         (jump),
-  .branch       (branch),
-  .ALU_bsel     (ALU_bsel),
-  .regfile_wren (regfile_wren),
-  .result_sel   (result_sel),
-  .ximm_sel     (ximm_sel),
-  .ALU_op       (ALU_op)
+  .opcode         (opcode),
+  .dmem_wren      (dmem_wren),
+  .jump           (jump),
+  .branch         (branch),
+  .ALU_bsel       (ALU_bsel),
+  .regfile_wren   (regfile_wren),
+  .PC_target_sel  (PC_target_sel),
+  .result_sel     (result_sel),
+  .ximm_sel       (ximm_sel),
+  .ALU_op         (ALU_op)
 );
 
 alu_decoder ALU_DECODER (

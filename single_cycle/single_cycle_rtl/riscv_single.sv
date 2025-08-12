@@ -15,6 +15,7 @@ logic N,Z,C,V; //neg,zero,carry,overflow control signals
 
 //controller to datapath signals:
 logic         PC_sel;           //mux for nextPC
+logic         PC_target_sel;    //mux for which value to use for PC target
 logic         ALU_bsel;         //mux which value to use for alu b input
 logic         regfile_wren;     //write enable for registerfile
 logic [1:0]   result_sel;       //mux for which result to writeback to regfile
@@ -23,20 +24,21 @@ logic [3:0]   ALU_control;      //choose which operation ALU should perform
 
 
 controller CONTROLLER (
-  .opcode       (instruction[6:0]),
-  .funct3       (instruction[14:12]),
-  .funct7b5     (instruction[30]),
-  .N            (N),
-  .Z            (Z),
-  .C            (C),
-  .V            (V),
-  .dmem_wren    (dmem_wren),
-  .PC_sel       (PC_sel),
-  .ALU_bsel     (ALU_bsel),
-  .regfile_wren (regfile_wren),
-  .result_sel   (result_sel),
-  .ximm_sel     (ximm_sel),
-  .ALU_control  (ALU_control)
+  .opcode         (instruction[6:0]),
+  .funct3         (instruction[14:12]),
+  .funct7b5       (instruction[30]),
+  .N              (N),
+  .Z              (Z),
+  .C              (C),
+  .V              (V),
+  .dmem_wren      (dmem_wren),
+  .PC_sel         (PC_sel),
+  .PC_target_sel  (PC_target_sel),
+  .ALU_bsel       (ALU_bsel),
+  .regfile_wren   (regfile_wren),
+  .result_sel     (result_sel),
+  .ximm_sel       (ximm_sel),
+  .ALU_control    (ALU_control)
 );
 
 datapath DATAPATH (
@@ -44,6 +46,7 @@ datapath DATAPATH (
   .reset          (reset),
   .regfile_wren   (regfile_wren),
   .PC_sel         (PC_sel),
+  .PC_target_sel  (PC_target_sel),
   .ALU_bsel       (ALU_bsel),
   .result_sel     (result_sel),
   .ximm_sel       (ximm_sel),

@@ -1,5 +1,5 @@
 //operation parameters
-parameter [1:0] add_op    = 2'b00; //lw/sw
+parameter [1:0] add_op    = 2'b00; //lw/sw/jalr
 parameter [1:0] sub_op    = 2'b01; //beq (for now)
 parameter [1:0] other_op  = 2'b10; //
 
