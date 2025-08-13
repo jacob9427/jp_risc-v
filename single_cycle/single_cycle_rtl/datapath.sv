@@ -6,7 +6,7 @@ module datapath (
   input  logic        PC_target_sel,
   input  logic        ALU_bsel,
   input  logic [1:0]  result_sel,
-  input  logic [1:0]  ximm_sel,
+  input  logic [2:0]  ximm_sel,
   input  logic [3:0]  ALU_control,
   input  logic [31:0] instruction,
   input  logic [31:0] dmem_data_out,
@@ -61,7 +61,8 @@ mux2 ALU_bmux (
   .out    (src2)
 );
 
-mux3 result_mux (
+mux4 result_mux (
+  .in3    (PC_inc_target_out),
   .in2    (PC_inc_4),
   .in1    (dmem_data_out),
   .in0    (ALU_result),
@@ -95,7 +96,7 @@ mux2 PC_target_mux (        //modify DP for jalr
   .out    (PC_target_src1)
 );
 
-mux2 PC_target_b0_mask ( //mask bit 0 if instruction is jalr
+mux2 PC_target_b0_mask ( //mask bit 0 (2byte alignment)
   .in1    ({PC_inc_target_out[31:1],1'b0}),
   .in0    (PC_inc_target_out),
   .select (PC_target_sel),

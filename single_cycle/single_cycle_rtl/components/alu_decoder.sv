@@ -1,7 +1,8 @@
 //operation parameters
 parameter [1:0] add_op    = 2'b00; //lw/sw/jalr
 parameter [1:0] sub_op    = 2'b01; //beq (for now)
-parameter [1:0] other_op  = 2'b10; //
+parameter [1:0] funct_op  = 2'b10; //dependent on funct
+parameter [1:0] other_op  = 2'b11; //depend
 
 //function parameters (funct3)
 parameter [2:0] add_sub_funct = 3'b000; //includes immediate for add
@@ -28,10 +29,8 @@ parameter [3:0] srl_ctrl  = 4'b1010;
 
 parameter [3:0] xor_ctrl  = 4'b0110;
 
-//shift operation parameters
-parameter [1:0] sll_sh_op = 2'b01;
-parameter [1:0] srl_sh_op = 2'b10;
-parameter [1:0] sra_sh_op = 2'b11;
+parameter [3:0] lui_dec_ctrl    = 4'b0111;
+parameter [3:0] auipc_dec_ctrl  = 4'b1011;
 
 module alu_decoder (
   input  logic        opcodeb5, //fifth bit of opcode
@@ -45,7 +44,7 @@ always_comb begin
   case (ALU_op)
     add_op:   ALU_control = add_ctrl;
     sub_op:   ALU_control = sub_ctrl;
-    other_op: case (funct3)
+    funct_op: case (funct3)
               add_sub_funct: begin 
                 if (funct7b5 & opcodeb5)
                     ALU_control = sub_ctrl;
@@ -64,9 +63,10 @@ always_comb begin
               xor_funct:  ALU_control = xor_ctrl;
               or_funct:   ALU_control = or_ctrl;
               and_funct:  ALU_control = and_ctrl;
-              default:    ALU_control = 3'bx;
+              default:    ALU_control = 4'bx;
     endcase
-    default:  ALU_control = 3'bx;
+    other_op: ALU_control = opcodeb5 ? lui_dec_ctrl : auipc_dec_ctrl;
+    default:  ALU_control = 4'bx;
   endcase
 end
 

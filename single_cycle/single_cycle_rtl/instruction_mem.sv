@@ -8,7 +8,7 @@ module instruction_mem ( //provided by ddca textbook
 logic [31:0] I_RAM [0:1023];
 
 //for simulation
-initial $readmemh("C:/Users/jacob/Downloads/jp_risc-v/single_cycle/programs/program3.hex",I_RAM);
+initial $readmemh("C:/Users/jacob/Downloads/jp_risc-v/single_cycle/programs/program4.hex",I_RAM);
 
 assign instruction_read = I_RAM[instruction_addr[31:2]]; //ignore the 2 LSBs
 

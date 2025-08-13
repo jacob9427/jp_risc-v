@@ -13,6 +13,9 @@ parameter [3:0] srl_ctrl_alu  = 4'b1010;
 
 parameter [3:0] xor_ctrl_alu  = 4'b0110;
 
+parameter [3:0] lui_ctrl_alu    = 4'b0111;
+parameter [3:0] auipc_ctrl_alu  = 4'b1011;
+
 module alu (
   input  logic [3:0]  ALU_control,
   input  logic [31:0] src1,
@@ -21,28 +24,10 @@ module alu (
   output logic        Z
 );
 
-//adder
-logic [31:0] ALU_adder_result;
-
-adder ALU_adder (
-  .a(src1),
-  .b(src2),
-  .f(ALU_adder_result)
-);
-
-//shifter
-logic [31:0] ALU_shifter_result;
-shifter SHIFTER (
-  .sh_op  (ALU_control),
-  .shamt  (src2[4:0]),
-  .sh_in  (src1),
-  .sh_out (ALU_shifter_result)
-);
-
 always_comb begin
   case (ALU_control)
     add_ctrl_alu: begin
-      ALU_result = ALU_adder_result;
+      ALU_result = src1 + src2;
     end
     sub_ctrl_alu: begin
       ALU_result = src1 - src2;
@@ -63,13 +48,16 @@ always_comb begin
       ALU_result = src1 ^ src2;
     end
     sll_ctrl_alu: begin
-      ALU_result = ALU_shifter_result;
+      ALU_result = src1 << src2[4:0];
     end
     sra_ctrl_alu: begin
-      ALU_result = ALU_shifter_result;
+      ALU_result = $signed(src1) >>> src2[4:0];
     end
     srl_ctrl_alu: begin
-      ALU_result = ALU_shifter_result;
+      ALU_result = src1 >> src2[4:0];
+    end
+    lui_ctrl_alu: begin
+      ALU_result = src2;
     end
     default: begin
       ALU_result = 32'b0;
