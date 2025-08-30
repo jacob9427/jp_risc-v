@@ -9,7 +9,7 @@ riscv_single_top DUT (
 );
 
 initial begin
-  repeat (50) 
+  repeat (150) 
     #5 clk = ~clk;
   
   $stop;

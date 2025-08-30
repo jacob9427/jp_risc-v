@@ -22,11 +22,11 @@ logic [1:0]   result_sel;       //mux for which result to writeback to regfile
 logic [2:0]   ximm_sel;         //select what type of sign extension to do
 logic [3:0]   ALU_control;      //choose which operation ALU should perform
 
-
 controller CONTROLLER (
   .opcode         (instruction[6:0]),
   .funct3         (instruction[14:12]),
   .funct7b5       (instruction[30]),
+  .ALU_resultb0   (ALU_result[0]),
   .N              (N),
   .Z              (Z),
   .C              (C),

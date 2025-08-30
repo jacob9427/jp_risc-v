@@ -64,7 +64,8 @@ always_comb begin
     end
   endcase
   
-  Z = &(~ALU_result);
+  Z = &(~ALU_result); //all zeroes
+
 end
 
 
